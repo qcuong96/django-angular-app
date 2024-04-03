@@ -75,6 +75,15 @@ python3 manage.py test --parallel --testrunner django.test.runner.DiscoverRunner
 # down database
 docker-compose down
 ```
+## Issue found
+### 1. Error when run on windowns: /usr/bin/env: ‘python \r’: No such file or directory
+- Open powershell
+```base
+cd django-rest
+(Get-Content -Path manage.py -Raw).Replace("`r`n", "`n") | Set-Content -Path manage_unix.py -NoNewline
+```
+- Change manage.py to manage_unix.py in file docker-compose.yml
+- Change mange.py to manage_unix.py when run related command
 
 ## Contact
 Help any problem, please contact me via email: quangcuong.nguyen96@gmail.com
