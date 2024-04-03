@@ -1,0 +1,50 @@
+<div class="create-support-ticket-box">
+    <form [formGroup]="createSupportTicket">
+        <!-- 
+            Create support ticket form includes the following fields:
+            - Subject
+            - Description
+            - Priority
+            - Category
+         -->
+        <div class="form-group">
+            <label for="subject">Subject (*)</label>
+            <input type="text" class="form-control" id="subject" formControlName="name" placeholder="Enter subject">
+            <div *ngIf="createSupportTicket.get('name')?.invalid && isClickSubmit">
+                <div class="text-danger">Name is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="priority">Priority</label>
+            <select class="form-control" id="priority" formControlName="priority">
+                <option value="LOW">Low</option>
+                <option value="NORMAL">Normal</option>
+                <option value="HIGH">High</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select class="form-control" id="category" formControlName="category">
+                <option value="HIRE">Hire bike</option>
+                <option value="RETURN">Return bike</option>
+                <option value="ISSUE">Fix bike</option>
+                <option value="LOST">Lost bike</option>
+                <option value="OTHER">Other </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="description">Description (*)</label>
+            <textarea class="form-control" id="description" formControlName="description"
+                placeholder="Enter description">
+            </textarea>
+            <div
+                *ngIf="createSupportTicket.get('description')?.invalid && isClickSubmit">
+                <div class="text-danger">Description must be at least 50 chars.</div>
+            </div>
+        </div>
+    </form>
+    <div class="box-footer">
+        <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="submit()">Submit</button>
+    </div>
+</div>

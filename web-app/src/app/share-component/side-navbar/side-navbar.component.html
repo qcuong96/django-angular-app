@@ -1,0 +1,44 @@
+<div class="app-side-nav">
+  <img id="app-logo" src="assets/images/app-logo.svg" />
+  <div class="top" style="min-height: calc(100vh - 240px); overflow-y: auto;">
+    <ul class="nav">
+      <li routerLinkActive="active" routerLink="/support-ticket" matRipple>
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+          <path
+            d="M9.82944 1H2.67039C1.74929 1 1 1.73591 1 2.64056V6.85927C1 7.76409 1.74929 8.5 2.67039 8.5H9.82944C10.7507 8.5 11.5 7.76409 11.5 6.85927V2.64056C11.5 1.73591 10.7507 1 9.82944 1Z"
+            fill="#8A919C" />
+          <path
+            d="M9.82944 10.4998H2.67039C1.74929 10.4998 1 11.2567 1 12.1874V22.3123C1 23.2428 1.74929 23.9998 2.67039 23.9998H9.82944C10.7507 23.9998 11.5 23.2428 11.5 22.3123V12.1874C11.5 11.2567 10.7507 10.4998 9.82944 10.4998Z"
+            fill="#8A919C" />
+          <path
+            d="M22.3296 16.5005H15.1706C14.2493 16.5005 13.5 17.2364 13.5 18.1412V22.3599C13.5 23.2646 14.2493 24.0005 15.1706 24.0005H22.3296C23.2507 24.0005 24 23.2646 24 22.3599V18.1412C24 17.2364 23.2507 16.5005 22.3296 16.5005V16.5005Z"
+            fill="#8A919C" />
+          <path
+            d="M22.3296 1H15.1706C14.2493 1 13.5 1.75694 13.5 2.68743V12.8124C13.5 13.7431 14.2493 14.5 15.1706 14.5H22.3296C23.2507 14.5 24 13.7431 24 12.8124V2.68743C24 1.75694 23.2507 1 22.3296 1V1Z"
+            fill="#8A919C" />
+        </svg>
+        <h4>Support</h4>
+        <div class="line"></div>
+      </li>
+    </ul>
+    <div class="user-log">
+      <div style="display: flex; flex-direction: column;">
+      </div>
+      <div style="display: flex; flex-direction: column;">
+      </div>
+    </div>
+  </div>
+  <ul class="user-profile">
+    <li class="user-name" [matTooltip]="username">
+      <img src="assets/images/avata.svg" alt="">
+      <h4> {{ username }}</h4>
+      <div class="line"></div>
+    </li>
+
+    <li (click)="logout()">
+      <span class="material-icons">
+        power_settings_new
+      </span>
+    </li>
+  </ul>
+</div>

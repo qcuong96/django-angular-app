@@ -1,0 +1,59 @@
+/* reply-dialog.component.scss */
+
+.reply-dialog {
+  display: flex;
+  flex-direction: column;
+  width: 640px;
+  height: 480px;
+  border: 1px solid #ccc;
+  border-radius: 16pxpx;
+  padding: 8px;
+}
+
+.reply-content {
+  margin-bottom: 16px;
+}
+
+textarea {
+  width: 100%;
+  height: 360px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow-y: auto; /* Add scrollbar when needed */
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+.btn-primary {
+  background-color: #007bff; /* Blue color */
+  color: #fff;
+
+  &:disabled {
+    // Styles for the disabled state
+    background-color: #ccc;
+    color: #888;
+  }
+}
+
+.btn-secondary {
+  background-color: #dc3545; /* Red color */
+  color: #fff;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  opacity: 0.8;
+}

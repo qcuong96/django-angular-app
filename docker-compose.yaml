@@ -1,0 +1,52 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:14.11
+    container_name: postgres_db
+    restart: always
+    ports:
+      - "35432:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: Admin@2024
+      POSTGRES_DB: customer_service
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  client-rest-apis:
+    build:
+      context: django-rest/.
+      dockerfile: Dockerfile
+    container_name: customer_service_client_rest_apis
+    command: >
+      sh -c "python3 wait_for_postgres.py &&
+               ./manage.py makemigrations &&
+               ./manage.py migrate &&
+               ./manage.py runserver 0.0.0.0:8080"
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    environment:
+      DATABASE_NAME: customer_service
+      DATABASE_USER: admin
+      DATABASE_PASSWORD: Admin@2024
+      DATABASE_PORT: 5432
+      DATABASE_HOST: postgres
+      DJANGO_SECRET_KEY: v3bdi^ai_j-enc*1ht0%*yymku^s_mxd8u0jgpw#pv(y#$d(lp
+
+  web-app:
+    build:
+      context: web-app/.
+      dockerfile: Dockerfile
+    ports:
+      - "4200:35145"
+    environment: 
+      - NODE_ENV=production
+      - ANGULAR_ENV=dev
+    command: >
+      sh -c "npm start"
+
+volumes:
+  postgres_data:

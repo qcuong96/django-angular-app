@@ -1,0 +1,25 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "==4.2.11"
+djangorestframework = "*"
+markdown = "*"
+django-filter = "*"
+django-configurations = "*"
+django-cors-headers = "*"
+dj-database-url = "*"
+django-rest-swagger = "*"
+django-nose = "*"
+django-seed = "*"
+psycopg2-binary = "*"
+
+[dev-packages]
+factory-boy = "*"
+pytest = "*"
+tblib = "*"
+
+[requires]
+python_version = "3.10"

@@ -1,0 +1,60 @@
+<div class="body-content">
+  <div class="ticket-info">
+    <div class="basic-info">
+      <div class="ticket-id">
+        <span class="label">Subject:</span>
+        <span class="value">{{ ticket?.name }}</span>
+      </div>
+      <div class="ticket-status">
+        <span class="label">Status:</span>
+        <span class="value">{{ ticket?.status }}</span>
+      </div>
+      <div class="ticket-priority">
+        <span class="label">Priority:</span>
+        <span class="value">{{ ticket?.priority }}</span>
+      </div>
+      <div class="ticket-category">
+        <span class="label">Category:</span>
+        <span class="value">{{ ticket?.category }}</span>
+      </div>
+    </div>
+    <div class="detail-info">
+      <div class="user-info">
+        <span class="label">Reporter:</span>
+        <span class="value">{{ ticket?.reporter }}</span>
+      </div>
+      <div class="user-info">
+        <span class="label">Supporter:</span>
+        <span class="value">{{ ticket?.supporter }}</span>
+        <button *ngIf="isEmployee && ticket?.supporter == null" (click)="assign()"
+          [disabled]="ticket?.supporter != null">Assign to me</button>
+      </div>
+      <div class="ticket-last-updated">
+        <span class="label">Last Updated:</span>
+        <span class="value">{{ ticket?.update_time | date: 'dd/MM/yyyy' }}</span>
+      </div>
+    </div>
+    <div class="actions">
+      <button *ngIf="isDeleteable" class="btn btn-primary delete" (click)="delete()">Delete</button>
+      <!-- <button *ngIf="editable" class="btn btn-primary edit" (click)="edit()">Edit</button> -->
+      <button *ngIf="isRepliable" class="btn btn-primary close" (click)="close()">Close</button>
+      <button *ngIf="isRepliable" class="btn btn-primary reply" (click)="reply()">Reply</button>
+    </div>
+  </div>
+  <div class="ticket-conent">
+    {{ ticket?.description }}
+  </div>
+  <div class="ticket-replies">
+    <div class="reply" *ngFor="let reply of ticket?.replies">
+      <div class="reply-info" [ngClass]="getClass(reply.replier)">
+        <div class="reply-time">
+          <span class="label">Reply at:</span>
+          <span class="value">{{ reply.update_time | date: 'dd/MM/yyyy' }}</span>
+        </div>
+        <div class="reply-content">
+          {{ reply.content }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

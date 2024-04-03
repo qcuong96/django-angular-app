@@ -1,0 +1,68 @@
+<div class="container">
+    <h2>Register</h2>
+    <form #registerForm="ngForm" (ngSubmit)="registerUser()">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required [(ngModel)]="userData.username"
+                    #username="ngModel">
+                <div *ngIf="username.invalid && (username.dirty || username.touched)" class="error-message">
+                    <div *ngIf="username.errors?.['required']">Username is required.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required [(ngModel)]="userData.password"
+                    #password="ngModel">
+                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
+                    <div *ngIf="password.errors?.['required']">Password is required.</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required [(ngModel)]="userData.first_name"
+                    #firstName="ngModel">
+                <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="error-message">
+                    <div *ngIf="firstName.errors?.['required']">First Name is required.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required [(ngModel)]="userData.last_name"
+                    #lastName="ngModel">
+                <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="error-message">
+                    <div *ngIf="lastName.errors?.['required']">Last Name is required.</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                    [(ngModel)]="userData.email" #email="ngModel">
+                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
+                    <div *ngIf="email.errors?.['required']">Email is required.</div>
+                    <div *ngIf="email.errors?.['pattern']">Invalid email format.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" required [(ngModel)]="userData.phone" #phone="ngModel"
+                    (keypress)="onPhoneKeyPress($event)" maxlength="15">
+                <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="error-message">
+                    <div *ngIf="phone.errors?.['required']">Phone is required.</div>
+                </div>
+            </div>
+            <div class="form-group" style="display: flex;">
+                <label for="employee">Employee:</label>
+                <input type="checkbox" id="employee" name="employee" [(ngModel)]="userData.is_employee">
+            </div>
+        </div>
+        <div class="btn-container">
+            <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Register</button>
+            <button type="button" class="btn btn-link" (click)="goToLoginPage()">Login</button>
+        </div>
+    </form>
+</div>

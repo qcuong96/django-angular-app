@@ -1,0 +1,125 @@
+.body-content {
+  .value {
+    margin-left: 8px;
+  }
+
+  .ticket-info {
+    padding: 32px;
+    display: flex;
+    font-size: 18px;
+    flex-direction: column;
+    background-color: #fff;
+
+    .basic-info,
+    .detail-info {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 20px;
+      
+      .ticket-id,
+      .ticket-status,
+      .ticket-priority,
+      .ticket-category,
+      .user-info,
+      .ticket-last-updated {
+        margin-right: 80px;
+        .label {
+          font-weight: bold;
+          margin-right: 5px;
+        }
+
+        .value {
+          color: #333;
+        }
+      }
+
+      .user-info {
+        display: flex;
+        align-items: center;
+
+        button {
+          margin-left: 10px;
+        }
+      }
+    }
+
+    .actions {
+      margin-left: auto; // Move the buttons to the right
+      .btn {
+        margin-left: 8px;
+        font-size: 20px; // Increase button size
+        padding: 10px 20px; // Increase button padding
+        border-radius: 8px; // Add border radius
+        border: none; // Remove the black border
+        cursor: pointer;
+
+        &.delete {
+          background-color: #ff6347; // Different color for delete button
+          &:hover {
+            background-color: darken(#ff6347, 10%); // Darken the color on hover
+          }
+        }
+
+        &.close {
+          background-color: #10c260; // Different color for delete button
+          &:hover {
+            background-color: darken(#10c260, 10%); // Darken the color on hover
+          }
+        }
+
+        &.edit {
+          background-color: #ffa500; // Different color for edit button
+          &:hover {
+            background-color: darken(#ffa500, 10%); // Darken the color on hover
+          }
+        }
+
+        &.reply {
+          background-color: #4682b4; // Different color for reply button
+          &:hover {
+            background-color: darken(#4682b4, 10%); // Darken the color on hover
+          }
+        }
+      }
+    }
+  }
+
+  .ticket-conent{
+    background-color: rgb(191, 194, 28);
+    font-size: 24px;
+    padding: 8px;
+    word-wrap: break-word;
+  }
+
+  .ticket-replies {
+    .reply {
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      background-color: #f0f0f0; // Default background color for replies
+
+      .reply-info {
+        padding: 10px;
+        border-radius: 8px;
+
+        .reply-time {
+          .label {
+            font-weight: bold;
+            margin-right: 5px;
+          }
+        }
+
+        .reply-content {
+          color: #333;
+        }
+        &.even {
+          background-color: #ADD8E6; // Light blue background for current user's replies
+        }
+      
+        &.odd {
+          background-color: #FFC0CB; // Light pink background for other users' replies
+        }
+      }
+    }
+  }
+}

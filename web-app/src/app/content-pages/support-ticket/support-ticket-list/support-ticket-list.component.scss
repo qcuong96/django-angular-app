@@ -1,0 +1,103 @@
+.content-body{
+    padding-top: 16px;
+}
+
+.content-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    button {
+        margin-left: auto;
+        margin-right: 0px;
+        width: 240px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        padding: 0 0 0 8px;
+        .info {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            p {
+                font-weight: 500;
+                font-size: 12px;
+                line-height: 14px;
+            }
+            .mat-icon {
+                display: flex;
+                align-items: center;
+                font-size: 18px;
+                color: white;
+                margin-left: 8px;
+            }
+        }
+    }
+
+    .create-support-ticket-btn {
+        border: none;
+        background: #ffffff;
+        font-size: 15px;
+        line-height: 15px;
+        text-align: right;
+        color: #659cf5;
+        justify-content: flex-end;
+        cursor: pointer;
+        background-color: #f2f2f2;
+        outline: none;
+    }
+    button:focus {
+        outline: none;
+    }
+}
+
+.content-filter-bar{
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+.content-box {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+//pagination
+div.pagination {
+    padding-top: 24px;
+    padding-bottom: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .page-info {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: auto;
+
+        span {
+            font-size: 48px;
+            cursor: pointer;
+        }
+
+        span[active="false"] {
+            opacity: 0.5;
+            cursor: default;
+            pointer-events: none;
+            color: gray;
+        }
+
+        .current-page {
+            width: fit-content;
+            padding: 8px;
+            height: fit-content;
+            background-color: #f9f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

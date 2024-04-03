@@ -1,0 +1,100 @@
+@import "light.theme";
+@import "color";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f2f2f2;
+    color: #101426;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    min-width: 1248px;
+
+    &::-webkit-scrollbar-track {
+        border-radius: 6px;
+        background-color: #e4e8ed;
+    }
+
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+        background-color: #e4e8ed;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 6px;
+        background-color: #fff;
+        border: 1px solid #e4e8ed;
+    }
+}
+.status-approved {
+    background-color: #9dd00a;
+    color: white;
+}
+.status-reviewing {
+    background-color: #0ebbf8;
+    color: white;
+}
+.status-declined {
+    background-color: #e53937;
+    color: white;
+}
+.status-failed {
+    background-color: #ff76ec;
+    color: white;
+}
+.status-draft {
+    background-color: #a99787;
+    color: white;
+}
+.status-deleted {
+    background-color: #ffc107;
+    color: white;
+}
+.company-target {
+    background-color: #3687c3;
+    color: white;
+}
+.company-competitor {
+    background-color: #a4e2f8;
+    color: white;
+}
+.polarity-n-plus {
+    background-color: #e53937;
+    color: white;
+}
+.polarity-n {
+    background-color: #fdabaa;
+    color: white;
+}
+.polarity-neu {
+    background-color: #a99787;
+    color: white;
+}
+.polarity-p {
+    background-color: #bed67c;
+    color: white;
+}
+.polarity-p-plus {
+    background-color: #9dd00a;
+    color: white;
+}
+.success-notification {
+    background-color: #58bc8b;
+}
+.mat-progress-bar-buffer {
+    background-color: #e1eff3;
+}
+
+.mat-progress-bar-fill::after {
+    background-color: #83dff9;
+}
