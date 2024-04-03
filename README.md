@@ -68,8 +68,9 @@ You need to update some config files to make app work on your local machine:
     - 35432: PostgreSQL
     - 8080: Django REST framework
     - 4200: Angular
-
+- Use can update docker-compose volumes save data
 - You can run test for backend by command:
+
 ```bash
 # setup database
 docker-compose up postgres -d
