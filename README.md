@@ -54,6 +54,15 @@ You need to update some config files to make app work on your local machine:
 - web-app/src/environments/environment.ts
 - django-rest/config/local.py
 
+## APP usage
+- Open browser and access to http://localhost:4200
+- Register new account
+- Tick to box employee if want to create employee account
+- Normal user can create, view, reply, close and delete own ticket
+- Employee can view all tickets
+- Employee can assign ticket to self if ticket is not assigned
+- Employee can reply and close ticket which he/she assigned
+
 ## Notes
 - This application need some ports to run:
     - 35432: PostgreSQL
