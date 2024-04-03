@@ -1,27 +1,80 @@
-# WebApp
+# Demo app
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.2.
+## APP infomation
+- APP name: Demo app
+- APP version: v0.0.0
+- APP description: This demo app using for practice Django REST framework and AngularTS
 
-## Development server
+## APP technologies
+- Backend: Python 3.10, Django 4.2, Django REST framework 3.15
+- Frontend: Angular 17, Node 20
+- Database: PostgreSQL 14.11
+- Deployment: Docker, Docker-compose
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## APP features
+- User authentication
+- Create ticket
+- Reply ticket
+- Close ticket
+- Delete ticket
 
-## Code scaffolding
+## APP setup
+### 1. Clone project
+```bash
+git clone https://github.com/pre-commit/demo-repo.git
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 2. Run project
+#### a. Run with docker-compose
+```bash
+docker-compose up
+``` 
+#### b. Run with local
+```bash
+# Create postgres database
+chmod +x start.sh
+./start.sh -d <dbname> -u <username> -p <password>
 
-## Build
+# Run backend
+cd django-rest
+pipenv install
+pipenv shell
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py runserver
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Run frontend
+cd web-app
+npm install
+ng serve
+```
 
-## Running unit tests
+You need to update some config files to make app work on your local machine:
+- web-app/angular.json
+- web-app/src/environments/environment.ts
+- django-rest/config/local.py
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Notes
+- This application need some ports to run:
+    - 35432: PostgreSQL
+    - 8080: Django REST framework
+    - 4200: Angular
 
-## Running end-to-end tests
+- You can run test for backend by command:
+```bash
+# setup database
+docker-compose up postgres -d
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# run test
+cd django-rest
+pipenv install
+pipenv shell
+pipenv install --dev
+python3 manage.py test --parallel --testrunner django.test.runner.DiscoverRunner
 
-## Further help
+# down database
+docker-compose down
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Contact
+Help any problem, please contact me via email: quangcuong.nguyen96@gmail.com

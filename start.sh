@@ -8,7 +8,7 @@ port="5432"  # Default PostgreSQL port
 
 # Function to display usage instructions
 usage() {
-    echo "Usage: $0 -d <dbname> -u <username> -p <password> [-P <port>]"
+    echo "Usage: $0 -d <dbname> -u <username> -p <password>"
     exit 1
 }
 
