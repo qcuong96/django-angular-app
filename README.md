@@ -27,7 +27,7 @@ git clone https://github.com/pre-commit/demo-repo.git
 ### 2. Run project
 #### a. Run with docker-compose
 ```bash
-docker-compose up
+docker-compose up -d
 ``` 
 #### b. Run with local
 ```bash
